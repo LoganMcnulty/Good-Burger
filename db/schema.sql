@@ -1,5 +1,5 @@
-CREATE DATABASE good_burger_db;
-USE good_burger_db;
+-- CREATE DATABASE good_burger_db;
+-- USE good_burger_db;
 
 CREATE TABLE burgers
 (
