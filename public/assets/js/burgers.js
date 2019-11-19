@@ -1,8 +1,17 @@
+
+
 // ESSENTIALLY WE ARE PULLING INFORMATION FROM THE INDEX BODY, AND THEN SENDING THAT INFORMATION TO THE ROUTES 
 // WHICH HANDLE THE INFORMATION
-
+$( document ).ready(function() {
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function() {
+    
+    const refEl = $("#reviewBurger")
+    const popEl = $("#pop")
+    new Popper(refEl, popEl, {
+      placement:'right'
+    });
+
     // change sleep on click function
       $(".change-eaten").on("click", function(event) {
       // pull id from this "data-id"
@@ -53,4 +62,6 @@ $(function() {
         );
     });
   });
+
+})
   
