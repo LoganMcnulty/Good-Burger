@@ -16,7 +16,7 @@
                 cb(res);
             });
             },
-        // update function send to orm.update the table, a value for a certain column (sleep), and a condition (id)
+        // update function send to orm.update the table, a value for a certain column (devoured), and a condition (id)
             update: function(objColVals, condition, cb) {
             orm.update("burgers", objColVals, condition, function(res) {
                 cb(res);
@@ -24,5 +24,5 @@
             }
         };
       
-// Export the database functions for the controller (catsController.js).
+// Export the database functions for the controller (burgers_controller.js).
     module.exports = burger;

@@ -2,12 +2,12 @@ var express = require("express");
 
 var router = express.Router();
 
-// Import the model (cat.js) to use its database functions.
+// Import the model (burger.js) to use its database functions.
   var burger = require("../models/burger.js");
 
 // Create all our routes and set up logic within those routes where required.
   router.get("/", function(req, res) {
-    // call on cat.all model, which is passed data 
+    // call on burger.all model, which is passed data 
       burger.all(function(data) {
         //hbsObject created to be passed to HandleBars Index
           var hbsObject = {
@@ -19,7 +19,7 @@ var router = express.Router();
   });
 
   router.get("/reviews", function(req, res) {
-    // call on cat.all model, which is passed data 
+    // call on burger.all model, which is passed data 
       burger.all(function(data) {
         //hbsObject created to be passed to HandleBars Index
           var hbsObject = {
@@ -31,19 +31,19 @@ var router = express.Router();
   });
 
 router.post("/api/burgers", function(req, res) {
-  // run cate.create model, create object "{name: req.body.name, and sleepy:req.body.sleepy} using data passed"
+  // run burger.create model, create object "{name: req.body.name, and sleepy:req.body.devoured} using data passed"
     burger.create(["burger_name"], [req.body.name], function(result) {
       // Send back the ID of the new cat
         res.json({ id: result.insertId });
     });
 });
 
-// update cat based on paramas passed by Index HTML javascript
+// update burger based on paramas passed by Index HTML javascript
   router.put("/api/burgers/:id", function(req, res) {
     var condition = "id = " + req.params.id;
 
     console.log("condition", condition);
-  // run cat.update from cats model
+  // run burger.update from burger model
     burger.update(
       {
         devoured: req.body.devoured

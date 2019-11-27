@@ -1,26 +1,24 @@
-
-
 // ESSENTIALLY WE ARE PULLING INFORMATION FROM THE INDEX BODY, AND THEN SENDING THAT INFORMATION TO THE ROUTES 
 // WHICH HANDLE THE INFORMATION
 $( document ).ready(function() {
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function() {
 
-    // change sleep on click function
+    // change eaten on click function
       $(".change-eaten").on("click", function(event) {
       // pull id from this "data-id"
         var id = $(this).data("id");
-      // pull sleep data from data-newsleep
+      // pull devour data from data-newdevour
         var newDevour = $(this).data("newdevour");
       
-        // for example, if newSleep = true, then this cat is not sleepy. 
-        // so we pass the value of true to the database, thus udpating the sleep state to true
-        // this data-newsleep is handled by index handlebars
+        // if newdevour = true, then this burger has not been eaten
+        // so we pass the value of true to the database, thus udpating the devour state to true
+        // this data-newdevour is handled by index handlebars
           var newDevourState = {
             devoured: newDevour
           };
   
-        // Send the PUT request to cats controller
+        // Send the PUT request to burgers controller
           $.ajax("/api/burgers/" + id, {
             type: "PUT",
             data: newDevourState
@@ -33,12 +31,12 @@ $(function() {
           );
       });
   
-  // create a new cat on click function
+  // create a new burger on click function
     $(".create-form").on("submit", function(event) {
       // Make sure to preventDefault on a submit event.
       event.preventDefault();
   
-      // create a new cat object pulling from the index body
+      // create a new burger object pulling from the index body
         var newBurger = {
           name: $("#burg").val().trim(),
         };
